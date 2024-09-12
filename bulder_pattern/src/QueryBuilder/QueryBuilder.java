@@ -24,6 +24,16 @@ public class QueryBuilder {
 
     }
 
+    @Override
+    public String toString() {
+        return "SELECT " + (select != null ? select : "*") +
+                "\nFROM " + from +
+                (join != null ? "\nJOIN " + join : "") +
+                (where != null ? "\nWHERE " + where : "") +
+                (groupBy != null ? "\nGROUP BY " + groupBy : "") +
+                (orderBy != null ? "\nORDER BY " + orderBy : "");
+    }
+
     public static class Builder{
         private String select;
         private String from;
